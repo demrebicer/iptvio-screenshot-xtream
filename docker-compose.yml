@@ -7,3 +7,5 @@ services:
       XTREAM_USER: screenshot
       XTREAM_PASS: demo
       PUBLIC_URL: https://screenshot-xtream-d7860b-167-235-61-97.sslip.io
+    ports:
+      - "8080:8080"
