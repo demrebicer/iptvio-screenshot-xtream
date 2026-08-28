@@ -2,20 +2,22 @@
 // Artwork URLs stay as-is for now; posters can be swapped later
 // with generated, copyright-safe assets.
 
-const TS_BUNNY = "https://filesamples.com/samples/video/ts/sample_1280x720_surfing_with_audio.ts";
+// Same public samples that apple-demo.m3u settled on after Google's
+// gtv-videos-bucket started returning 403.
+const HLS = {
+  mux: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+  bipbop: "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8",
+  tears: "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
+};
+
 const TS_SURF = "https://filesamples.com/samples/video/ts/sample_1280x720_surfing_with_audio.ts";
 const TS_OCEAN = "https://filesamples.com/samples/video/ts/sample_960x400_ocean_with_audio.ts";
 
 const MP4 = {
-  bunny: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-  elephants: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-  blazes: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-  sintel: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-  fun: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-  subaru: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-  gti: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4",
-  bullrun: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4",
-  grand: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
+  bunny: "https://media.w3.org/2010/05/bunny/movie.mp4",
+  elephants: "https://archive.org/download/ElephantsDream/ed_hd.mp4",
+  sintel: "https://media.w3.org/2010/05/sintel/trailer.mp4",
+  clip: "https://media.w3.org/2010/05/video/movie_300.mp4",
 };
 
 export const ADDED = "1704067200";
@@ -38,15 +40,15 @@ export const seriesCategories = [
 ];
 
 export const liveStreams = [
-  live(1001, "Live Channel 1", "1", "https://i.hizliresim.com/c96tim6.png", TS_BUNNY),
-  live(1002, "Live Channel 2", "1", "https://i.hizliresim.com/m0lxv29.png", TS_SURF),
-  live(1003, "Live Channel 3", "1", "https://i.hizliresim.com/su6ci6q.png", TS_OCEAN),
-  live(1004, "Live Channel 4", "2", "https://i.hizliresim.com/5jen256.png", TS_BUNNY),
-  live(1005, "Live Channel 5", "2", "https://i.hizliresim.com/n1k3n68.png", TS_SURF),
-  live(1006, "Live Channel 6", "2", "https://i.hizliresim.com/be453l0.png", TS_OCEAN),
-  live(1007, "Live Channel 7", "3", "https://i.hizliresim.com/hddnooj.png", TS_BUNNY),
-  live(1008, "Live Channel 8", "3", "https://i.hizliresim.com/hb9c1zb.png", TS_SURF),
-  live(1009, "Live Channel 9", "3", "https://i.hizliresim.com/hbypgq4.png", TS_OCEAN),
+  live(1001, "Live Channel 1", "1", "https://i.hizliresim.com/c96tim6.png", TS_SURF, HLS.mux),
+  live(1002, "Live Channel 2", "1", "https://i.hizliresim.com/m0lxv29.png", TS_SURF, HLS.bipbop),
+  live(1003, "Live Channel 3", "1", "https://i.hizliresim.com/su6ci6q.png", TS_OCEAN, HLS.tears),
+  live(1004, "Live Channel 4", "2", "https://i.hizliresim.com/5jen256.png", TS_SURF, HLS.mux),
+  live(1005, "Live Channel 5", "2", "https://i.hizliresim.com/n1k3n68.png", TS_SURF, HLS.bipbop),
+  live(1006, "Live Channel 6", "2", "https://i.hizliresim.com/be453l0.png", TS_OCEAN, HLS.tears),
+  live(1007, "Live Channel 7", "3", "https://i.hizliresim.com/hddnooj.png", TS_SURF, HLS.mux),
+  live(1008, "Live Channel 8", "3", "https://i.hizliresim.com/hb9c1zb.png", TS_SURF, HLS.bipbop),
+  live(1009, "Live Channel 9", "3", "https://i.hizliresim.com/hbypgq4.png", TS_OCEAN, HLS.tears),
 ];
 
 export const vodStreams = [
@@ -77,7 +79,7 @@ export const vodStreams = [
     duration: "01:36:00",
     rating: "7.2",
   }),
-  vod(2004, "Movie 4", "11", "https://i.hizliresim.com/4l7uh5h.jpg", MP4.blazes, {
+  vod(2004, "Movie 4", "11", "https://i.hizliresim.com/4l7uh5h.jpg", MP4.sintel, {
     plot: "A junior archivist discovers a banned radio play and has 48 hours to decide whether the city should hear it again.",
     cast: "Owen Park, Lila Mendes, Craig Yoon",
     director: "Rafael Dunn",
@@ -95,7 +97,7 @@ export const vodStreams = [
     duration: "01:47:00",
     rating: "8.4",
   }),
-  vod(2006, "Movie 6", "11", "https://i.hizliresim.com/lw81ohw.jpg", MP4.fun, {
+  vod(2006, "Movie 6", "11", "https://i.hizliresim.com/lw81ohw.jpg", MP4.clip, {
     plot: "A quiet baker inherits a lighthouse and the last letter of a sailor who promised to come back on the first clear tide.",
     cast: "June Keller, Omar Said, Tess Brennan",
     director: "Clara Voss",
@@ -162,25 +164,25 @@ export const seriesList = [
 
 const ORBITAL_EPISODES = {
   1: [
-    { title: "Lift", plot: "The crew undocks for a blackout window and learns the mission clock is already lying to them.", url: MP4.subaru },
-    { title: "Blackout", plot: "Communications drop for seventeen minutes. When they return, Earth is asking for a decision no protocol covers.", url: MP4.gti },
-    { title: "The Window", plot: "Rachel has one orbital pass to choose between the station and the people waiting on the ground.", url: MP4.bullrun },
-    { title: "Reentry", plot: "A damaged capsule becomes the only way home, and the crew votes with the planet watching.", url: MP4.grand },
+    { title: "Lift", plot: "The crew undocks for a blackout window and learns the mission clock is already lying to them.", url: MP4.bunny },
+    { title: "Blackout", plot: "Communications drop for seventeen minutes. When they return, Earth is asking for a decision no protocol covers.", url: MP4.clip },
+    { title: "The Window", plot: "Rachel has one orbital pass to choose between the station and the people waiting on the ground.", url: MP4.sintel },
+    { title: "Reentry", plot: "A damaged capsule becomes the only way home, and the crew votes with the planet watching.", url: MP4.elephants },
   ],
   2: [
-    { title: "Ground Control", plot: "Six months later, the survivors are split between a hearing on Earth and a silent station above it.", url: MP4.bullrun },
-    { title: "Drift", plot: "A new crew member arrives with orders that were never meant to be read aloud.", url: MP4.grand },
-    { title: "The Vote", plot: "The station's remaining air is enough for five. There are six names on the roster.", url: MP4.bullrun },
-    { title: "Home", plot: "Rachel makes the last call of the mission and leaves the window open for whoever comes next.", url: MP4.grand },
+    { title: "Ground Control", plot: "Six months later, the survivors are split between a hearing on Earth and a silent station above it.", url: MP4.sintel },
+    { title: "Drift", plot: "A new crew member arrives with orders that were never meant to be read aloud.", url: MP4.elephants },
+    { title: "The Vote", plot: "The station's remaining air is enough for five. There are six names on the roster.", url: MP4.sintel },
+    { title: "Home", plot: "Rachel makes the last call of the mission and leaves the window open for whoever comes next.", url: MP4.elephants },
   ],
 };
 
 const GENERIC_EPISODES = {
   1: [
-    { title: "Episode 1", plot: "The team takes the first assignment and finds the map is already out of date.", url: MP4.subaru },
-    { title: "Episode 2", plot: "A second lead appears in the last place they agreed not to look.", url: MP4.gti },
-    { title: "Episode 3", plot: "Alliances shift when the archive opens a door that should have stayed sealed.", url: MP4.bullrun },
-    { title: "Episode 4", plot: "The season closes on a choice that cannot be walked back.", url: MP4.grand },
+    { title: "Episode 1", plot: "The team takes the first assignment and finds the map is already out of date.", url: MP4.bunny },
+    { title: "Episode 2", plot: "A second lead appears in the last place they agreed not to look.", url: MP4.clip },
+    { title: "Episode 3", plot: "Alliances shift when the archive opens a door that should have stayed sealed.", url: MP4.sintel },
+    { title: "Episode 4", plot: "The season closes on a choice that cannot be walked back.", url: MP4.elephants },
   ],
 };
 
@@ -228,7 +230,7 @@ export const epgPrograms = [
   "Dawn Recap",
 ];
 
-function live(stream_id, name, category_id, stream_icon, source_url) {
+function live(stream_id, name, category_id, stream_icon, source_url, hls_url) {
   return {
     num: stream_id - 1000,
     name,
@@ -243,6 +245,7 @@ function live(stream_id, name, category_id, stream_icon, source_url) {
     direct_source: "",
     tv_archive_duration: 0,
     source_url,
+    hls_url,
   };
 }
 

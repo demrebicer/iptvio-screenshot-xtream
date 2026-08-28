@@ -28,7 +28,7 @@ for (const seasons of Object.values(episodesBySeriesId)) {
   }
 }
 
-const STREAM_PATH = /^\/(live|movie|series)\/([^/]+)\/([^/]+)\/(\d+)(?:\.[A-Za-z0-9]+)?$/;
+const STREAM_PATH = /^\/(live|movie|series)\/([^/]+)\/([^/]+)\/(\d+)(?:\.([A-Za-z0-9]+))?$/;
 
 function parseQuery(request, url) {
   const query = Object.fromEntries(url.searchParams.entries());
@@ -338,8 +338,13 @@ function handlePlayerApi(query) {
   }
 }
 
-function resolveSource(kind, id) {
-  if (kind === "live") return liveById.get(id)?.source_url;
+function resolveSource(kind, id, extension) {
+  if (kind === "live") {
+    const channel = liveById.get(id);
+    if (!channel) return null;
+    if (extension === "m3u8" && channel.hls_url) return channel.hls_url;
+    return channel.source_url;
+  }
   if (kind === "movie") return vodById.get(id)?.source_url;
   return episodeById.get(id)?.source_url;
 }
@@ -406,12 +411,12 @@ const server = http.createServer(async (request, response) => {
 
     const streamMatch = url.pathname.match(STREAM_PATH);
     if (streamMatch) {
-      const [, kind, username, password, id] = streamMatch;
+      const [, kind, username, password, id, extension] = streamMatch;
       if (username !== USERNAME || password !== PASSWORD) {
         send(response, 401, unauthorized());
         return;
       }
-      const sourceUrl = resolveSource(kind, id);
+      const sourceUrl = resolveSource(kind, id, extension);
       if (!sourceUrl) {
         send(response, 404, { error: "stream not found" });
         return;
