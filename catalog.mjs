@@ -22,6 +22,9 @@ const MP4 = {
 
 export const ADDED = "1704067200";
 
+const ART_BASE = (process.env.PUBLIC_URL || "https://screenshot-xtream-d7860b-167-235-61-97.sslip.io").replace(/\/$/, "");
+const art = (file) => `${ART_BASE}/posters/${file}`;
+
 export const liveCategories = [
   { category_id: "1", category_name: "Live Channels Group 1", parent_id: 0 },
   { category_id: "2", category_name: "Live Channels Group 2", parent_id: 0 },
@@ -52,16 +55,34 @@ export const liveStreams = [
 ];
 
 export const vodStreams = [
-  vod(2001, "A Thousand Tomorrows", "10", "https://i.hizliresim.com/ncte079.jpg", MP4.bunny, {
+  vod(2001, "Harbor Light", "10", art("harbor-light.jpg"), MP4.bunny, {
     plot: "A cartographer returns to a coastal town to finish a map she abandoned ten years ago, and finds the shoreline has rewritten every memory she trusted.",
     cast: "Elena Vargas, Jonah Hale, Priya Seth",
     director: "Mira Solano",
-    genre: "Drama",
+    genre: "Romance",
     releasedate: "2024-03-12",
     duration: "01:42:00",
     rating: "7.8",
   }),
-  vod(2002, "Spark", "10", "https://i.hizliresim.com/ro0hgmd.jpg", MP4.elephants, {
+  vod(2002, "Champion", "10", art("champion.jpg"), MP4.sintel, {
+    plot: "After a career-ending injury, a runner coaches a rookie through a race that was never meant to be finished alone.",
+    cast: "Maya Ruiz, Ben Calloway, Soren Idris",
+    director: "Patrice Ndiaye",
+    genre: "Sports Drama",
+    releasedate: "2023-06-09",
+    duration: "01:47:00",
+    rating: "8.4",
+  }),
+  vod(2003, "Open House", "10", art("open-house.jpg"), MP4.bunny, {
+    plot: "A junior broker has one afternoon to sell a glass house, and the open house turns into the strangest party on the street.",
+    cast: "Nora Blake, Samir Cole, Ivy Tran",
+    director: "Helen Cho",
+    genre: "Comedy",
+    releasedate: "2022-09-18",
+    duration: "01:36:00",
+    rating: "7.2",
+  }),
+  vod(2004, "Spark", "10", art("spark.jpg"), MP4.elephants, {
     plot: "An engineer and a glassblower race to keep a remote observatory online during a week-long solar storm that turns the night sky into a warning.",
     cast: "Theo Marin, Asha Quinn, Luis Ortega",
     director: "Kenji Mora",
@@ -70,41 +91,50 @@ export const vodStreams = [
     duration: "01:28:00",
     rating: "8.1",
   }),
-  vod(2003, "Movie 3", "10", "https://i.hizliresim.com/bi7pl74.jpg", MP4.bunny, {
-    plot: "Three strangers share a delayed night train and realize they are carrying pieces of the same missing story.",
-    cast: "Nora Blake, Samir Cole, Ivy Tran",
-    director: "Helen Cho",
-    genre: "Mystery",
-    releasedate: "2022-09-18",
-    duration: "01:36:00",
-    rating: "7.2",
-  }),
-  vod(2004, "Movie 4", "11", "https://i.hizliresim.com/4l7uh5h.jpg", MP4.sintel, {
-    plot: "A junior archivist discovers a banned radio play and has 48 hours to decide whether the city should hear it again.",
+  vod(2005, "Day Train", "11", art("day-train.jpg"), MP4.sintel, {
+    plot: "Three strangers share a delayed carriage and realize they are carrying pieces of the same missing story.",
     cast: "Owen Park, Lila Mendes, Craig Yoon",
     director: "Rafael Dunn",
-    genre: "Thriller",
+    genre: "Drama",
     releasedate: "2024-01-20",
     duration: "01:51:00",
     rating: "7.5",
   }),
-  vod(2005, "Champion", "11", "https://i.hizliresim.com/alvu7vl.jpg", MP4.sintel, {
-    plot: "After a career-ending injury, a climber coaches a rookie through a mountain race that was never meant to be finished alone.",
-    cast: "Maya Ruiz, Ben Calloway, Soren Idris",
-    director: "Patrice Ndiaye",
-    genre: "Sports Drama",
-    releasedate: "2023-06-09",
-    duration: "01:47:00",
-    rating: "8.4",
-  }),
-  vod(2006, "Movie 6", "11", "https://i.hizliresim.com/lw81ohw.jpg", MP4.clip, {
-    plot: "A quiet baker inherits a lighthouse and the last letter of a sailor who promised to come back on the first clear tide.",
+  vod(2006, "The Block", "11", art("the-block.jpg"), MP4.clip, {
+    plot: "A quiet street is rebuilt as a living puzzle, and the last empty lot decides who the neighborhood becomes.",
     cast: "June Keller, Omar Said, Tess Brennan",
     director: "Clara Voss",
-    genre: "Romance",
+    genre: "Comedy",
     releasedate: "2021-05-14",
     duration: "01:33:00",
     rating: "7.0",
+  }),
+  vod(2007, "Paper Plane", "11", art("paper-plane.jpg"), MP4.bunny, {
+    plot: "A rooftop dare turns into a city-wide paper-plane race that nobody planned to take seriously.",
+    cast: "Chris Bell, Dana Cho",
+    director: "Ivy Hart",
+    genre: "Adventure",
+    releasedate: "2024-07-02",
+    duration: "01:24:00",
+    rating: "7.4",
+  }),
+  vod(2008, "Gold Hour", "11", art("gold-hour.jpg"), MP4.elephants, {
+    plot: "A baker inherits a sunrise kitchen and the last recipe of a sailor who promised to come back on the first clear tide.",
+    cast: "Mina Sol, Rob Hale",
+    director: "Paul Nunez",
+    genre: "Drama",
+    releasedate: "2022-10-21",
+    duration: "01:38:00",
+    rating: "7.6",
+  }),
+  vod(2009, "North Star", "11", art("north-star.jpg"), MP4.clip, {
+    plot: "A navigator follows a compass that points to people, not places, across one bright alpine morning.",
+    cast: "Tara Quinn, Leo Berg",
+    director: "Sofia Kade",
+    genre: "Adventure",
+    releasedate: "2023-08-11",
+    duration: "01:41:00",
+    rating: "7.9",
   }),
 ];
 

@@ -1,4 +1,7 @@
 import http from "node:http";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { URL } from "node:url";
 import {
   liveCategories,
@@ -12,6 +15,8 @@ import {
 } from "./catalog.mjs";
 
 const PORT = Number(process.env.PORT || 8080);
+const POSTERS_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), "posters");
+const POSTER_PATH = /^\/posters\/([a-z0-9-]+\.(?:jpg|jpeg|png))$/i;
 const USERNAME = process.env.XTREAM_USER || "screenshot";
 const PASSWORD = process.env.XTREAM_PASS || "demo";
 const PUBLIC_URL = (process.env.PUBLIC_URL || `http://127.0.0.1:${PORT}`).replace(/\/$/, "");
@@ -369,6 +374,24 @@ const server = http.createServer(async (request, response) => {
         "access-control-allow-headers": "*",
       });
       response.end();
+      return;
+    }
+
+    const posterMatch = url.pathname.match(POSTER_PATH);
+    if (posterMatch) {
+      const filePath = path.join(POSTERS_DIR, posterMatch[1]);
+      if (!fs.existsSync(filePath)) {
+        send(response, 404, { error: "poster not found" });
+        return;
+      }
+      const body = fs.readFileSync(filePath);
+      response.writeHead(200, {
+        "content-type": filePath.endsWith(".png") ? "image/png" : "image/jpeg",
+        "content-length": body.length,
+        "access-control-allow-origin": "*",
+        "cache-control": "public, max-age=86400",
+      });
+      response.end(body);
       return;
     }
 
