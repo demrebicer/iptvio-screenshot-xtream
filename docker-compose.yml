@@ -1,0 +1,9 @@
+services:
+  xtream:
+    build: .
+    restart: unless-stopped
+    environment:
+      PORT: "8080"
+      XTREAM_USER: screenshot
+      XTREAM_PASS: demo
+      PUBLIC_URL: https://screenshot-xtream-d7860b-167-235-61-97.sslip.io
