@@ -32,14 +32,15 @@ export const liveCategories = [
 ];
 
 export const vodCategories = [
-  { category_id: "10", category_name: "Movies Group 1", parent_id: 0 },
-  { category_id: "11", category_name: "Movies Group 2", parent_id: 0 },
+  { category_id: "10", category_name: "Featured", parent_id: 0 },
+  { category_id: "11", category_name: "Adventure", parent_id: 0 },
+  { category_id: "12", category_name: "Feel Good", parent_id: 0 },
 ];
 
 export const seriesCategories = [
-  { category_id: "20", category_name: "Series", parent_id: 0 },
-  { category_id: "21", category_name: "Series Group 1", parent_id: 0 },
-  { category_id: "22", category_name: "Series Group 2", parent_id: 0 },
+  { category_id: "20", category_name: "Featured", parent_id: 0 },
+  { category_id: "21", category_name: "Lifestyle", parent_id: 0 },
+  { category_id: "22", category_name: "Drama", parent_id: 0 },
 ];
 
 export const liveStreams = [
@@ -82,7 +83,7 @@ export const vodStreams = [
     duration: "01:36:00",
     rating: "7.2",
   }),
-  vod(2004, "Spark", "10", art("spark.jpg"), MP4.elephants, {
+  vod(2004, "Spark", "11", art("spark.jpg"), MP4.elephants, {
     plot: "An engineer and a glassblower race to keep a remote observatory online during a week-long solar storm that turns the night sky into a warning.",
     cast: "Theo Marin, Asha Quinn, Luis Ortega",
     director: "Kenji Mora",
@@ -100,7 +101,7 @@ export const vodStreams = [
     duration: "01:51:00",
     rating: "7.5",
   }),
-  vod(2006, "The Block", "11", art("the-block.jpg"), MP4.clip, {
+  vod(2006, "The Block", "12", art("the-block.jpg"), MP4.clip, {
     plot: "A quiet street is rebuilt as a living puzzle, and the last empty lot decides who the neighborhood becomes.",
     cast: "June Keller, Omar Said, Tess Brennan",
     director: "Clara Voss",
@@ -118,7 +119,7 @@ export const vodStreams = [
     duration: "01:24:00",
     rating: "7.4",
   }),
-  vod(2008, "Gold Hour", "11", art("gold-hour.jpg"), MP4.elephants, {
+  vod(2008, "Gold Hour", "12", art("gold-hour.jpg"), MP4.elephants, {
     plot: "A baker inherits a sunrise kitchen and the last recipe of a sailor who promised to come back on the first clear tide.",
     cast: "Mina Sol, Rob Hale",
     director: "Paul Nunez",
@@ -127,7 +128,7 @@ export const vodStreams = [
     duration: "01:38:00",
     rating: "7.6",
   }),
-  vod(2009, "North Star", "11", art("north-star.jpg"), MP4.clip, {
+  vod(2009, "North Star", "12", art("north-star.jpg"), MP4.clip, {
     plot: "A navigator follows a compass that points to people, not places, across one bright alpine morning.",
     cast: "Tara Quinn, Leo Berg",
     director: "Sofia Kade",
@@ -142,7 +143,7 @@ const ORBITAL_PLOT =
   "Commander Rachel Torres leads a crew of astronauts aboard the International Space Station during humanity's most critical mission. 250 miles above Earth, they must make impossible choices that will determine the fate of 8 billion people below. A gripping sci-fi drama about courage, sacrifice, and the bonds that hold us together.";
 
 export const seriesList = [
-  series(3001, "Orbital", "20", "https://i.hizliresim.com/nfam8ov.jpg", {
+  series(3001, "Orbital", "20", art("orbital.jpg"), {
     plot: ORBITAL_PLOT,
     cast: "Rachel Torres, Malik Okonkwo, June Park, Evan Solis",
     director: "Ada Voss",
@@ -150,45 +151,69 @@ export const seriesList = [
     releaseDate: "2024-01-12",
     rating: "8.7",
   }),
-  series(3002, "Test Series 2", "21", "https://i.hizliresim.com/atrhkgi.jpg", {
-    plot: "A field team maps forgotten subway lines and finds a city that has been living one minute behind the rest of the world.",
+  series(3002, "Flight Path", "20", art("flight-path.jpg"), {
+    plot: "A cartographer of the sky maps forgotten air routes and finds a city that has been living one minute behind the rest of the world.",
     cast: "Chris Bell, Dana Cho",
     director: "Ivy Hart",
-    genre: "Drama",
+    genre: "Adventure",
     releaseDate: "2023-04-02",
     rating: "7.4",
   }),
-  series(3003, "Test Series 3", "21", "https://i.hizliresim.com/ko9zj6w.jpg", {
-    plot: "Four roommates run a late-night radio hour that starts receiving tomorrow's headlines a day early.",
-    cast: "Mina Sol, Rob Hale",
-    director: "Paul Nunez",
-    genre: "Comedy",
-    releaseDate: "2022-10-21",
-    rating: "7.1",
-  }),
-  series(3004, "Test Series 4", "22", "https://i.hizliresim.com/jne4f5f.jpg", {
-    plot: "A restoration crew is hired to reopen a closed mountain hotel and discovers every room is booked by the same missing guest.",
+  series(3003, "Copper Line", "20", art("copper-line.jpg"), {
+    plot: "A restoration crew reopens a closed railway hotel and discovers every room is booked by the same missing passenger.",
     cast: "Tara Quinn, Leo Berg",
     director: "Sofia Kade",
-    genre: "Mystery",
+    genre: "Period Drama",
     releaseDate: "2023-08-11",
     rating: "7.6",
   }),
-  series(3005, "Test Series 5", "22", "https://i.hizliresim.com/6hspn7p.jpg", {
-    plot: "A junior diplomat is assigned to a floating archive where nations store the stories they do not want remembered.",
-    cast: "Amir Cole, Wren Daly",
-    director: "Noor Elbaz",
-    genre: "Political Drama",
+  series(3004, "Sunday Kitchen", "21", art("sunday-kitchen.jpg"), {
+    plot: "A sunrise cook inherits a lemon-lit kitchen and the last recipe of a sailor who promised to return on the first clear tide.",
+    cast: "Mina Sol, Rob Hale",
+    director: "Paul Nunez",
+    genre: "Lifestyle",
+    releaseDate: "2022-10-21",
+    rating: "7.1",
+  }),
+  series(3005, "City Limits", "21", art("city-limits.jpg"), {
+    plot: "Four roommates on a fire escape start a radio hour that receives tomorrow's headlines a day early.",
+    cast: "Nora Blake, Samir Cole",
+    director: "Helen Cho",
+    genre: "Comedy",
     releaseDate: "2024-02-03",
     rating: "7.9",
   }),
-  series(3006, "Test Series 6", "22", "https://i.hizliresim.com/yv1zalo.jpg", {
-    plot: "A cart racing league in a desert port city becomes the only legal way to settle old family debts.",
-    cast: "Pia Moreau, Hank Ruiz",
-    director: "Eli Navarro",
-    genre: "Action",
+  series(3006, "Blue Room", "21", art("blue-room.jpg"), {
+    plot: "A junior designer is hired to finish one perfect room, and every client asks for the same missing chair.",
+    cast: "June Keller, Omar Said",
+    director: "Clara Voss",
+    genre: "Design",
     releaseDate: "2021-07-30",
     rating: "7.3",
+  }),
+  series(3007, "River Bend", "22", art("river-bend.jpg"), {
+    plot: "A field team follows a green river that redraws the map each morning, and a red canoe is the only constant.",
+    cast: "Amir Cole, Wren Daly",
+    director: "Noor Elbaz",
+    genre: "Drama",
+    releaseDate: "2024-05-18",
+    rating: "7.8",
+  }),
+  series(3008, "First Watch", "22", art("first-watch.jpg"), {
+    plot: "Two morning hosts keep a live show running when the sun disc in the studio starts answering questions first.",
+    cast: "Pia Moreau, Hank Ruiz",
+    director: "Eli Navarro",
+    genre: "Comedy",
+    releaseDate: "2023-03-09",
+    rating: "7.5",
+  }),
+  series(3009, "Late Signal", "22", art("late-signal.jpg"), {
+    plot: "A coral motel sign starts spelling names of guests who have not checked in yet.",
+    cast: "Elena Vargas, Jonah Hale",
+    director: "Mira Solano",
+    genre: "Mystery",
+    releaseDate: "2024-08-01",
+    rating: "7.7",
   }),
 ];
 
