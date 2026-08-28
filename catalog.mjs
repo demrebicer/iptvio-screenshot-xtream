@@ -26,9 +26,9 @@ const ART_BASE = (process.env.PUBLIC_URL || "https://screenshot-xtream-d7860b-16
 const art = (file) => `${ART_BASE}/posters/${file}`;
 
 export const liveCategories = [
-  { category_id: "1", category_name: "Live Channels Group 1", parent_id: 0 },
-  { category_id: "2", category_name: "Live Channels Group 2", parent_id: 0 },
-  { category_id: "3", category_name: "Live Channels Group 3", parent_id: 0 },
+  { category_id: "1", category_name: "News", parent_id: 0 },
+  { category_id: "2", category_name: "Sports", parent_id: 0 },
+  { category_id: "3", category_name: "Lifestyle", parent_id: 0 },
 ];
 
 export const vodCategories = [
@@ -44,15 +44,15 @@ export const seriesCategories = [
 ];
 
 export const liveStreams = [
-  live(1001, "Live Channel 1", "1", "https://i.hizliresim.com/c96tim6.png", TS_SURF, HLS.mux),
-  live(1002, "Live Channel 2", "1", "https://i.hizliresim.com/m0lxv29.png", TS_SURF, HLS.bipbop),
-  live(1003, "Live Channel 3", "1", "https://i.hizliresim.com/su6ci6q.png", TS_OCEAN, HLS.tears),
-  live(1004, "Live Channel 4", "2", "https://i.hizliresim.com/5jen256.png", TS_SURF, HLS.mux),
-  live(1005, "Live Channel 5", "2", "https://i.hizliresim.com/n1k3n68.png", TS_SURF, HLS.bipbop),
-  live(1006, "Live Channel 6", "2", "https://i.hizliresim.com/be453l0.png", TS_OCEAN, HLS.tears),
-  live(1007, "Live Channel 7", "3", "https://i.hizliresim.com/hddnooj.png", TS_SURF, HLS.mux),
-  live(1008, "Live Channel 8", "3", "https://i.hizliresim.com/hb9c1zb.png", TS_SURF, HLS.bipbop),
-  live(1009, "Live Channel 9", "3", "https://i.hizliresim.com/hbypgq4.png", TS_OCEAN, HLS.tears),
+  live(1001, "City Desk", "1", "https://i.hizliresim.com/c96tim6.png", TS_SURF, HLS.mux),
+  live(1002, "Harbor News", "1", "https://i.hizliresim.com/m0lxv29.png", TS_SURF, HLS.bipbop),
+  live(1003, "World Hour", "1", "https://i.hizliresim.com/su6ci6q.png", TS_OCEAN, HLS.tears),
+  live(1004, "Match Day", "2", "https://i.hizliresim.com/5jen256.png", TS_SURF, HLS.mux),
+  live(1005, "Night Watch", "2", "https://i.hizliresim.com/n1k3n68.png", TS_SURF, HLS.bipbop),
+  live(1006, "Open Court", "2", "https://i.hizliresim.com/be453l0.png", TS_OCEAN, HLS.tears),
+  live(1007, "Morning Desk", "3", "https://i.hizliresim.com/hddnooj.png", TS_SURF, HLS.mux),
+  live(1008, "Late Signal", "3", "https://i.hizliresim.com/hb9c1zb.png", TS_SURF, HLS.bipbop),
+  live(1009, "Dawn Recap", "3", "https://i.hizliresim.com/hbypgq4.png", TS_OCEAN, HLS.tears),
 ];
 
 export const vodStreams = [
